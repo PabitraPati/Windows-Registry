@@ -23,7 +23,6 @@ log.info("Python version :- {}".format(version_info))
 class Registry_Read():
 
     def __init__(self, const):
-        self.nodes = []
         self.const = const
 
     def get_subkeys(self, keypath):
@@ -92,9 +91,13 @@ class Registry_Read():
 
 
 obj = Registry_Read(HKEY_CURRENT_USER)
+
 keypath1 = r'SOFTWARE\Skype'
-log.info("Subkeys for given key {} are {} ".format(
+log.info(
+    "Subkeys for given key {} are {} ".format(
     keypath1, obj.get_subkeys(keypath1)))
+
 keypath2=r'SOFTWARE\Skype\Phone\UI'
-log.info("Values for given key {} are {} ".format(
+log.info(
+    "Values for given key {} are {} ".format(
     keypath2, obj.get_values(keypath2)))
